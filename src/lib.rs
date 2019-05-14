@@ -1,3 +1,6 @@
+#![deny(bare_trait_objects)]
+#![forbid(unsafe_code)]
+
 extern crate proc_macro;
 
 
