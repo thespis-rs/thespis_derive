@@ -1,2 +1,7 @@
 # thespis_derive
-Derive macros for Actor and Message
+
+Derive macros for Actor
+
+# Todo
+
+- derive Message
