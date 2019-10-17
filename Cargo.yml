@@ -13,7 +13,7 @@ lib:
 
 dependencies:
 
-  proc-macro2: 0.4.27
-  syn        : 0.15.26
-  quote      : 0.6.11
+  proc-macro2: ^1
+  syn        : ^1
+  quote      : ^1
 
