@@ -1,9 +1,47 @@
 package:
 
-  name   : thespis_derive
-  version: 0.1.0
-  authors: [ Naja Melan <najamelan@autistici.org> ]
-  edition: '2018'
+  # When releasing to crates.io:
+  #
+  # - Update CHANGELOG.md.
+  # - Update version numbers in Cargo.yml, Cargo.toml, install section of readme.
+  # - verify CI result
+  # - test dependent crates
+  # - cargo publish
+  # - merge dev branch into master
+  # - create git tag
+  #
+  version       : 0.1.0
+  name          : thespis_derive
+  edition       : '2018'
+  authors       : [ Naja Melan <najamelan@autistici.org> ]
+  description   : Derive macros for thespis traits
+  license       : Unlicense
+  homepage      : https://github.com/thespis-rs/thespis_derive
+  repository    : https://github.com/thespis-rs/thespis_derive
+  documentation : https://docs.rs/thespis_derive
+  readme        : README.md
+  keywords      : [ async, futures, actor, thespis ]
+  categories    : [ Asynchronous, Concurrency ]
+
+  metadata:
+    docs:
+      rs:
+        features: [ external_doc ]
+
+
+badges:
+
+  maintenance : { status     : actively-developed       }
+  travis-ci   : { repository : thespis-rs/thespis_derive }
+
+
+features:
+
+  default: []
+
+  # only used internally, don't use
+  #
+  external_doc: []
 
 
 lib:

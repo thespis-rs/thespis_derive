@@ -1,14 +1,38 @@
 # Auto-generated from "Cargo.yml"
+[badges]
+[badges.maintenance]
+status = "actively-developed"
+
+[badges.travis-ci]
+repository = "thespis-rs/thespis_derive"
+
 [dependencies]
 proc-macro2 = "^1"
 quote = "^1"
 syn = "^1"
+
+[features]
+default = []
+external_doc = []
 
 [lib]
 proc-macro = true
 
 [package]
 authors = ["Naja Melan <najamelan@autistici.org>"]
+categories = ["Asynchronous", "Concurrency"]
+description = "Derive macros for thespis traits"
+documentation = "https://docs.rs/thespis_derive"
 edition = "2018"
+homepage = "https://github.com/thespis-rs/thespis_derive"
+keywords = ["async", "futures", "actor", "thespis"]
+license = "Unlicense"
 name = "thespis_derive"
+readme = "README.md"
+repository = "https://github.com/thespis-rs/thespis_derive"
 version = "0.1.0"
+
+[package.metadata]
+[package.metadata.docs]
+[package.metadata.docs.rs]
+features = ["external_doc"]
