@@ -31,7 +31,7 @@ package:
 
 badges:
 
-  maintenance : { status     : actively-developed       }
+  maintenance : { status     : actively-developed        }
   travis-ci   : { repository : thespis-rs/thespis_derive }
 
 

@@ -23,8 +23,6 @@
 	variant_size_differences      ,
 )]
 
-extern crate proc_macro;
-
 
 use
 {
