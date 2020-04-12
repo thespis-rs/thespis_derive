@@ -9,7 +9,10 @@ repository = "thespis-rs/thespis_derive"
 [dependencies]
 proc-macro2 = "^1"
 quote = "^1"
-syn = "^1"
+
+[dependencies.syn]
+features = ["full"]
+version = "^1"
 
 [features]
 default = []

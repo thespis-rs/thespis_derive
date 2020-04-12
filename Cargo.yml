@@ -52,6 +52,6 @@ lib:
 dependencies:
 
   proc-macro2: ^1
-  syn        : ^1
+  syn        : { version: ^1, features: [full] }
   quote      : ^1
 

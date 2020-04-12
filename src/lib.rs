@@ -26,9 +26,9 @@
 
 use
 {
-	quote      :: { quote                          } ,
-	proc_macro :: { TokenStream                    } ,
-	syn        :: { parse_macro_input, DeriveInput } ,
+	quote      :: { quote                                             } ,
+	proc_macro :: { TokenStream                                       } ,
+	syn        :: { parse_macro_input, parse, DeriveInput, ReturnType } ,
 };
 
 
@@ -39,10 +39,9 @@ use
 pub fn derive_actor( input: TokenStream ) -> TokenStream
 {
 	let input = parse_macro_input!( input as DeriveInput );
+	let name  = input.ident;
 
 	let ( impl_generics, ty_generics, where_clause ) = input.generics.split_for_impl();
-
-	let name = input.ident;
 
 	// The generated impl.
 	//
@@ -52,6 +51,82 @@ pub fn derive_actor( input: TokenStream ) -> TokenStream
 		{}
 	};
 
-	proc_macro::TokenStream::from( expanded )
+	TokenStream::from( expanded )
+}
+
+
+/// Implement an async trait method for thespis traits.
+//
+#[ proc_macro_attribute ]
+//
+pub fn async_fn( _args: TokenStream, item: TokenStream ) -> TokenStream
+{
+	let input: syn::ItemFn = match parse( item )
+	{
+		Ok (i) => i                                  ,
+		Err(e) => return e.to_compile_error().into() ,
+	};
+
+
+	let name  = &input.sig.ident  ;
+	let args  = &input.sig.inputs ;
+	let body  = &input.block      ;
+	let attrs = &input.attrs      ;
+
+	let ret = match &input.sig.output
+	{
+		ReturnType::Default      => quote!( ()   ) ,
+		ReturnType::Type(_, ret) => quote!( #ret ) ,
+	};
+
+	let tokens = quote!
+	{
+		#( #attrs )*
+		//
+		fn #name( #args ) -> thespis::Return< '_, #ret > { Box::pin
+		(
+			async move #body
+		)}
+	};
+
+	tokens.into()
+}
+
+
+/// Implement an async trait method for thespis traits.
+//
+#[ proc_macro_attribute ]
+//
+pub fn async_fn_nosend( _args: TokenStream, item: TokenStream ) -> TokenStream
+{
+	let input: syn::ItemFn = match parse( item )
+	{
+		Ok (i) => i                                  ,
+		Err(e) => return e.to_compile_error().into() ,
+	};
+
+
+	let name  = &input.sig.ident  ;
+	let args  = &input.sig.inputs ;
+	let body  = &input.block      ;
+	let attrs = &input.attrs      ;
+
+	let ret = match &input.sig.output
+	{
+		ReturnType::Default      => quote!( ()   ) ,
+		ReturnType::Type(_, ret) => quote!( #ret ) ,
+	};
+
+	let tokens = quote!
+	{
+		#( #attrs )*
+		//
+		fn #name( #args ) -> thespis::ReturnNoSend< '_, #ret > { Box::pin
+		(
+			async move #body
+		)}
+	};
+
+	tokens.into()
 }
 
