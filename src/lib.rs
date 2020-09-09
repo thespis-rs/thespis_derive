@@ -56,6 +56,10 @@ pub fn derive_actor( input: TokenStream ) -> TokenStream
 
 
 /// Implement an async trait method for thespis traits.
+///
+/// For usage, please look at tests and examples in the _thespis_impl_ crate.
+/// The [guide](https://thespis-rs.github.io/thespis_guide/thespis_impl/thespis_impl.html) shows
+/// what this desugars to.
 //
 #[ proc_macro_attribute ]
 //
@@ -83,7 +87,7 @@ pub fn async_fn( _args: TokenStream, item: TokenStream ) -> TokenStream
 	{
 		#( #attrs )*
 		//
-		fn #name( #args ) -> thespis::Return< '_, #ret > { Box::pin
+		fn #name( #args ) -> ::thespis::Return< '_, #ret > { ::std::boxed::Box::pin
 		(
 			async move #body
 		)}
@@ -94,6 +98,10 @@ pub fn async_fn( _args: TokenStream, item: TokenStream ) -> TokenStream
 
 
 /// Implement an async trait method for thespis traits.
+///
+/// For usage, please look at tests and examples in the _thespis_impl_ crate.
+/// The [guide](https://thespis-rs.github.io/thespis_guide/thespis_impl/thespis_impl.html) shows
+/// what this desugars to.
 //
 #[ proc_macro_attribute ]
 //
@@ -121,7 +129,7 @@ pub fn async_fn_nosend( _args: TokenStream, item: TokenStream ) -> TokenStream
 	{
 		#( #attrs )*
 		//
-		fn #name( #args ) -> thespis::ReturnNoSend< '_, #ret > { Box::pin
+		fn #name( #args ) -> ::thespis::ReturnNoSend< '_, #ret > { ::std::boxed::Box::pin
 		(
 			async move #body
 		)}
