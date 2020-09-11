@@ -22,7 +22,7 @@ proc-macro = true
 
 [package]
 authors = ["Naja Melan <najamelan@autistici.org>"]
-categories = ["Asynchronous", "Concurrency"]
+categories = ["asynchronous", "concurrency"]
 description = "Derive macros for thespis traits"
 documentation = "https://docs.rs/thespis_derive"
 edition = "2018"
