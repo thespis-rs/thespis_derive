@@ -1,7 +1,6 @@
-// See: https://github.com/rust-lang/rust/issues/44732#issuecomment-488766871
-//!
-#![ cfg_attr( feature = "external_doc", feature(external_doc)         ) ]
-#![ cfg_attr( feature = "external_doc", doc(include = "../README.md") ) ]
+#![ cfg_attr( nightly, feature( external_doc             ) ) ]
+#![ cfg_attr( nightly, doc    ( include = "../README.md" ) ) ]
+#![ doc = "" ] // empty doc line to handle missing doc warning when the feature is missing.
 //
 #![ doc    ( html_root_url = "https://docs.rs/thespis_derive" ) ]
 #![ deny   ( missing_docs                                     ) ]
@@ -105,7 +104,7 @@ pub fn async_fn( _args: TokenStream, item: TokenStream ) -> TokenStream
 //
 #[ proc_macro_attribute ]
 //
-pub fn async_fn_nosend( _args: TokenStream, item: TokenStream ) -> TokenStream
+pub fn async_fn_local( _args: TokenStream, item: TokenStream ) -> TokenStream
 {
 	let input: syn::ItemFn = match parse( item )
 	{
