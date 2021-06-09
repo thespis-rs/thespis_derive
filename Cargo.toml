@@ -7,7 +7,7 @@ status = "actively-developed"
 repository = "thespis-rs/thespis_derive"
 
 [build-dependencies]
-rustc_version = "^0.2"
+rustc_version = "^0.4"
 
 [dependencies]
 proc-macro2 = "^1"
