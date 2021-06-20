@@ -24,7 +24,7 @@ package:
   # - `git tag x.x.x` with version number.
   # - `git push && git push --tags`
   #
-  version       : 0.1.0-alpha.1
+  version       : 0.1.0
   name          : thespis_derive
   edition       : '2018'
   authors       : [ Naja Melan <najamelan@autistici.org> ]
@@ -35,12 +35,12 @@ package:
   documentation : https://docs.rs/thespis_derive
   readme        : README.md
   keywords      : [ async, futures, actor, thespis ]
-  categories    : [ Asynchronous, Concurrency ]
+  categories    : [ asynchronous, concurrency ]
 
   metadata:
     docs:
       rs:
-        all-featiures: true
+        all-features: true
 
 
 badges:
@@ -63,5 +63,5 @@ dependencies:
 
 build-dependencies:
 
-  rustc_version: ^0.2
+  rustc_version: ^0.4
 

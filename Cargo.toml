@@ -7,7 +7,7 @@ status = "actively-developed"
 repository = "thespis-rs/thespis_derive"
 
 [build-dependencies]
-rustc_version = "^0.2"
+rustc_version = "^0.4"
 
 [dependencies]
 proc-macro2 = "^1"
@@ -22,7 +22,7 @@ proc-macro = true
 
 [package]
 authors = ["Naja Melan <najamelan@autistici.org>"]
-categories = ["Asynchronous", "Concurrency"]
+categories = ["asynchronous", "concurrency"]
 description = "Derive macros for thespis traits"
 documentation = "https://docs.rs/thespis_derive"
 edition = "2018"
@@ -32,9 +32,9 @@ license = "Unlicense"
 name = "thespis_derive"
 readme = "README.md"
 repository = "https://github.com/thespis-rs/thespis_derive"
-version = "0.1.0-alpha.1"
+version = "0.1.0"
 
 [package.metadata]
 [package.metadata.docs]
 [package.metadata.docs.rs]
-all-featiures = true
+all-features = true
