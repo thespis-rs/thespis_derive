@@ -3,7 +3,7 @@
 
 ## [Unreleased]
 
-[Unreleased]: https://github.com/najamelan/async_executors/compare/master...dev
+[Unreleased]: https://github.com/najamelan/async_executors/compare/release...dev
 
 
 ## [0.1.0] - 2021-06-20

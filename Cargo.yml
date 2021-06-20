@@ -4,7 +4,7 @@ package:
   #
   # - last check for all TODO, FIXME, expect, unwrap.
   # - recheck log statements (informative, none left that were just for development, ...)
-  # - `cargo +nightly doc` and re-read and final polish of documentation.
+  # - `cargo +nightly doc --all-features --no-deps --open` and re-read and final polish of documentation.
   #
   # - Update CHANGELOG.md.
   # - Update version numbers in Cargo.yml, Cargo.toml, install section of readme.
@@ -20,7 +20,7 @@ package:
   # - `cargo test` on dependent crates
   #
   # - cargo publish
-  # - `git checkout master && git merge dev --no-ff`
+  # - `git checkout release && git merge dev --no-ff`
   # - `git tag x.x.x` with version number.
   # - `git push && git push --tags`
   #
