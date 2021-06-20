@@ -27,6 +27,7 @@ package:
   version       : 0.1.0
   name          : thespis_derive
   edition       : '2018'
+  resolver      : '2'
   authors       : [ Naja Melan <najamelan@autistici.org> ]
   description   : Derive macros for thespis traits
   license       : Unlicense
