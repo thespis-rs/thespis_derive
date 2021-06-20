@@ -6,7 +6,7 @@
 
 > Derive macros for thespis traits
 
-This crate provides a few convenience macros for the _thespis_ library. They are all re-exported from _thespis_, so you shouldn't need
-to use this directly.
+This crate provides a few convenience macros for the _thespis_ library. They are all re-exported from [_thespis_](https://docs.rs/thespis),
+so you shouldn't need to use this directly.
 
 Please check out the [guide level documentation](https://thespis-rs.github.io/thespis_guide/).
