@@ -26,7 +26,7 @@ package:
   #
   version       : 0.1.0
   name          : thespis_derive
-  edition       : '2018'
+  edition       : '2021'
   resolver      : '2'
   authors       : [ Naja Melan <najamelan@autistici.org> ]
   description   : Derive macros for thespis traits
@@ -42,12 +42,6 @@ package:
     docs:
       rs:
         all-features: true
-
-
-badges:
-
-  maintenance : { status     : actively-developed        }
-  travis-ci   : { repository : thespis-rs/thespis_derive }
 
 
 lib:
