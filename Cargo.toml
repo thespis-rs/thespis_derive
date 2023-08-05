@@ -25,7 +25,6 @@ license = "Unlicense"
 name = "thespis_derive"
 readme = "README.md"
 repository = "https://github.com/thespis-rs/thespis_derive"
-resolver = "2"
 version = "0.1.0"
 
 [package.metadata]
