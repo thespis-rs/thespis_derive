@@ -138,3 +138,52 @@ pub fn async_fn_local( _args: TokenStream, item: TokenStream ) -> TokenStream
 	tokens.into()
 }
 
+
+/// Implement an async trait method for thespis traits. Like async_fn_local, but also
+/// creates a default `handle` function that will panic if called.
+///
+/// For usage, please look at tests and examples in the _thespis_impl_ crate.
+/// The [guide](https://thespis-rs.github.io/thespis_guide/thespis_impl/thespis_impl.html) shows
+/// what this desugars to.
+//
+#[ proc_macro_attribute ]
+//
+pub fn async_fn_nosend( _args: TokenStream, item: TokenStream ) -> TokenStream
+{
+	let input: syn::ItemFn = match parse( item )
+	{
+		Ok (i) => i                                  ,
+		Err(e) => return e.to_compile_error().into() ,
+	};
+
+
+	let name  = &input.sig.ident  ;
+	let args  = &input.sig.inputs ;
+	let body  = &input.block      ;
+	let attrs = &input.attrs      ;
+
+	let ret = match &input.sig.output
+	{
+		ReturnType::Default      => quote!( ()   ) ,
+		ReturnType::Type(_, ret) => quote!( #ret ) ,
+	};
+
+	let tokens = quote!
+	{
+		#( #attrs )*
+		//
+		fn #name( #args ) -> ::thespis::ReturnNoSend< '_, #ret > { ::std::boxed::Box::pin
+		(
+			async move #body
+		)}
+
+		#[allow(unused_variables)]
+		fn handle( #args ) -> ::thespis::Return< '_, #ret >
+		{
+			unreachable!( "Non-Send actor cannot be spawned on a threadpool. Use spawn_local." );
+		}
+	};
+
+	tokens.into()
+}
+
